@@ -13,11 +13,10 @@ app.use('/public', express.static(process.cwd() + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.route('/').get((req, res) => {
+app.get('/', (req, res) => {
   res.render('index');
 });
 
+// Start server (FCC requires this format)
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Listening on ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
